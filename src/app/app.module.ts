@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { Product1Component } from './product1/product1.component';
+import { ProductService } from './share/product.service';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { Product1Component } from './product1/product1.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  //声明service,为将来的注入
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

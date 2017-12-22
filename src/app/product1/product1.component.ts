@@ -1,3 +1,4 @@
+import { Product, ProductService } from './../share/product.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Product1Component implements OnInit {
 
-  constructor() { }
+  product: Product;
+  
+  constructor(
+    //通过app.module.ts中的provider声明进行自动注入
+    private productService:ProductService
+  ) { }
 
   ngOnInit() {
+    this.product=this.productService.getProduct();
   }
 
 }
