@@ -7,12 +7,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './product2.component.html',
   styleUrls: ['./product2.component.css'],
 
-  //注意,这里不在app.module.ts中声明,而在本component中
-  providers:[{
-
-    //useClass指定使用哪个service进行注入
-    provide:ProductService, useClass:AnotherProductService
-  }]
+  
 })
 export class Product2Component implements OnInit {
 
