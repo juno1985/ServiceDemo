@@ -23,8 +23,8 @@ import { Product2Component } from './product2/product2.component';
   providers: [{
     provide:ProductService,
     useFactory:(logger:LoggerService, isDev)=>{
-      
-      if(isDev){
+      //传进来的是对象，然后获得其属性
+      if(isDev.isDev){
         return new ProductService(logger);
       }else{
         return new AnotherProductService(logger);
@@ -37,8 +37,9 @@ import { Product2Component } from './product2/product2.component';
   
     LoggerService,
     //生成具体值用来注入
+    //传进来的是对象，然后获得其属性
     {
-      provide:"IS_DEV_ENV", useValue:false
+      provide:"IS_DEV_ENV", useValue:{isDev:true}
     }],
   bootstrap: [AppComponent]
 })
