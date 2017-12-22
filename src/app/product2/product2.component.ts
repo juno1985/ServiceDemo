@@ -1,15 +1,30 @@
+import { AnotherProductService } from './../share/another-product.service';
+import { Product,ProductService } from './../share/product.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product2',
   templateUrl: './product2.component.html',
-  styleUrls: ['./product2.component.css']
+  styleUrls: ['./product2.component.css'],
+
+  //注意,这里不在app.module.ts中声明,而在本component中
+  providers:[{
+
+    //useClass指定使用哪个service进行注入
+    provide:ProductService, useClass:AnotherProductService
+  }]
 })
 export class Product2Component implements OnInit {
 
-  constructor() { }
+  product: Product;
+  
+  constructor(
+    //通过app.module.ts中的provider声明进行自动注入
+    private productService:ProductService
+  ) { }
 
   ngOnInit() {
+    this.product=this.productService.getProduct();
   }
 
 }
