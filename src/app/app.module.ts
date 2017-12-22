@@ -1,3 +1,4 @@
+import { LoggerService } from './share/logger.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -18,7 +19,7 @@ import { Product2Component } from './product2/product2.component';
     BrowserModule
   ],
   //声明service,为将来的注入
-  providers: [ProductService],
+  providers: [ProductService, LoggerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
